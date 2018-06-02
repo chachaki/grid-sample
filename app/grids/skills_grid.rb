@@ -9,5 +9,8 @@ class SkillsGrid < BaseGrid
 
   column(:id)
   column(:name)
+  column(:active, :header => "Activated") do |skill|
+    !skill.user.disabled
+  end
   date_column(:created_at)
 end
